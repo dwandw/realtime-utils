@@ -148,10 +148,11 @@ utils.RealtimeUtils.prototype = {
    */
   load: function(documentId, onFileLoaded, initializeModel) {
     var that = this;
+    var onError = this.onError.bind(this);
     window.gapi.drive.realtime.load(documentId, function(doc) {
       window.doc = doc;  // Debugging purposes
       onFileLoaded(doc);
-    }, initializeModel, this.onError);
+    }, initializeModel, onError);
   },
 
   /**
@@ -268,8 +269,10 @@ utils.RealtimeAuthorizer.prototype = {
   handleAuthResult: function(authResult) {
     if (authResult && !authResult.error) {
       this.token = authResult.access_token;
+      this.onAuthComplete(authResult);
+    }else{
+      this..authorize(authResult,true);
     }
-    this.onAuthComplete(authResult);
   },
 
   /**
