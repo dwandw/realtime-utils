@@ -271,7 +271,7 @@ utils.RealtimeAuthorizer.prototype = {
       this.token = authResult.access_token;
       this.onAuthComplete(authResult);
     }else{
-      this..authorize(authResult,true);
+      this.authorize(authResult,true);
     }
   },
 
