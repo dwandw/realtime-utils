@@ -238,10 +238,10 @@ utils.RealtimeAuthorizer.prototype = {
         that.authorize(onAuthComplete, usePopup);
       }
     });
-    if (this.authTimer) {
-      window.clearTimeout(this.authTimer);
-    }
-    this.refreshAuth();
+    // if (this.authTimer) {
+    //   window.clearTimeout(this.authTimer);
+    // }
+    // this.refreshAuth();
   },
 
   /**
